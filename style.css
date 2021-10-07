@@ -1,0 +1,93 @@
+:root {
+  --primaryColor: #4caf50;
+  --secondaryColor: #b44646;
+  --animationDuration: 3s;
+  --loadingSize: 128px;
+  --perspective: 250px;
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.u-loading {
+  width: var(--loadingSize);
+  height: var(--loadingSize);
+  display: block;
+  margin: 48px;
+}
+.u-loading__symbol {
+  background-color: var(--primaryColor);
+  padding: 8px;
+  animation: loading var(--animationDuration) infinite;
+  border-radius: 5px;
+}
+img {
+  display: block;
+  max-width: 100%;
+  animation: loading-icon var(--animationDuration) infinite;
+}
+
+@keyframes loading {
+  0% {
+    transform: perspective(var(--perspective)) rotateX(0deg) rotateY(0deg);
+  }
+
+  15% {
+    background-color: var(--primaryColor);
+  }
+
+  16% {
+    background-color: var(--secondaryColor);
+  }
+
+  50% {
+    transform: perspective(var(--perspective)) rotateX(180deg) rotateY(0deg);
+    background-color: var(--secondaryColor);
+  }
+
+  65% {
+    background-color: var(--secondaryColor);
+  }
+
+  66% {
+    background-color: var(--primaryColor);
+  }
+
+  100% {
+    transform: perspective(var(--perspective)) rotateX(180deg) rotateY(-180deg);
+  }
+}
+
+@keyframes loading-icon {
+  0% {
+    transform: perspective(var(--perspective)) rotateX(0deg) rotateY(0deg);
+  }
+
+  15% {
+    transform: perspective(var(--perspective)) rotateX(0deg) rotateY(0deg);
+  }
+
+  16% {
+    transform: perspective(var(--perspective)) rotateX(180deg) rotateY(0deg);
+  }
+
+  50% {
+    transform: perspective(var(--perspective)) rotateX(180deg) rotateY(0deg);
+  }
+
+  65% {
+    transform: perspective(var(--perspective)) rotateX(180deg) rotateY(0deg);
+  }
+
+  66% {
+    transform: perspective(var(--perspective)) rotateX(180deg) rotateY(180deg);
+  }
+
+  100% {
+    transform: perspective(var(--perspective)) rotateX(180deg) rotateY(180deg);
+  }
+}
